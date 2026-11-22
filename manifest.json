@@ -1,0 +1,14 @@
+{
+  "name": "OROMO Café",
+  "short_name": "OROMO",
+  "description": "بطاقة العضوية الملكية والبيجر الإلكتروني",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "dir": "rtl",
+  "lang": "ar",
+  "background_color": "#0B0B0D",
+  "theme_color": "#0B0B0D",
+  "icons": [{ "src": "./icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }]
+}

@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>OROMO Café</title>
+<meta name="theme-color" content="#0B0B0D">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="manifest" href="./manifest.json">
+<link rel="icon" href="./icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="./icon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<main id="client" class="wrap">
+  <header class="hello"><p id="greet">أهلاً بك</p><h1 id="helloName">OROMO Café</h1></header>
+  <section class="scene">
+    <div class="card" id="card">
+      <div class="shine"></div>
+      <div class="ctop"><b class="brand">OROMO</b><span class="tier" id="tier"></span></div>
+      <div class="cmid"><div><small>عضو مميز</small><h2 id="cName"></h2><p class="mid" id="cId"></p></div><div id="qr" class="qr"></div></div>
+      <div class="stamps" id="stamps"></div>
+      <p class="cnote" id="cNote"></p>
+    </div>
+  </section>
+  <section class="pager glass" id="pager"><div class="pdot"></div><div><h3 id="pTitle">لا يوجد طلب نشط</h3><p id="pSub">عند جاهزية قهوتك سيهتز هاتفك وتصلك نغمة هادئة.</p></div></section>
+  <section id="trackWrap"><div id="tracker" class="stack"></div></section>
+  <section><h3 class="sec">قائمة أورومو</h3><div class="menu" id="menu"></div></section>
+  <section><h3 class="sec">كمّل مزاجك مع قهوتك</h3><div class="grid" id="offers"></div></section>
+  <section><h3 class="sec">خدمة الطاولة الصامتة</h3><div class="grid g2" id="concierge"></div></section>
+  <section class="glass rate"><h3 class="sec">كيف كانت تجربتك؟</h3><div class="stars" id="stars"></div><p id="rateMsg"></p><a id="mapsBtn" class="btn gold" target="_blank" rel="noopener" hidden>قيّمنا على خرائط جوجل</a></section>
+  <button class="btn ghost" id="installBtn" hidden>ثبّت البطاقة على الشاشة الرئيسية</button>
+  <p class="iosHint" id="iosHint" hidden>على آيفون: اضغط زر المشاركة ثم «إضافة إلى الشاشة الرئيسية».</p>
+  <footer>OROMO Café · شارع طه حسين — برج مصر للتأمين — الدور الأول علوي — المنيا</footer>
+  <div id="cartBar" class="cartbar" hidden><div class="ct"><div><b id="cCount">0 أصناف</b><span id="cTotal">0 ج</span></div><select id="tableSel" aria-label="مكان الاستلام"></select></div><button class="btn gold" id="sendOrder">إرسال الطلب الآن</button></div>
+  <button id="lockBtn" aria-label="دخول الموظفين">🔒</button>
+</main>
+
+<main id="staff" class="wrap" hidden>
+  <header class="shead"><h1>لوحة الكاشير</h1><div class="acts2"><button class="btn gold sm" id="openKitchen">شاشة المطبخ</button><button class="btn ghost sm" id="exitStaff">خروج</button></div></header>
+  <nav class="tabs"><button class="tab on" data-tab="Orders" id="ordTab">الطلبات الواردة</button><button class="tab" data-tab="Members">العملاء والأختام</button><button class="tab" data-tab="Stock">الجرد والمبيعات اليومية 📊</button></nav>
+  <div id="tabOrders"><div id="sBoard" class="kgrid"></div></div>
+  <div id="tabMembers" class="stack" hidden>
+  <div class="stats" id="stats"></div>
+  <div class="glass bar"><input id="search" placeholder="ابحث برقم الموبايل أو رقم العضوية" inputmode="search"><button class="btn gold sm" id="scanBtn">مسح QR</button></div>
+  <div id="selBox" class="glass sel" hidden></div>
+  <div class="glass tbl"><div class="thead"><h3>العملاء المسجلون</h3><button class="btn gold sm" id="csvBtn">تصدير Excel / CSV</button></div><div class="scroll"><table><thead><tr><th>الاسم</th><th>الموبايل</th><th>العضوية</th><th>الأختام</th><th>التقييم</th></tr></thead><tbody id="rows"></tbody></table></div></div>
+  </div>
+  <div id="tabStock" class="stack" hidden>
+    <div class="stats" id="invStats"></div>
+    <div class="glass tbl"><div class="thead"><h3>جرد الأصناف (الوردية الحالية)</h3><div class="acts2"><button class="btn gold sm" id="invCsv">تصدير جرد اليوم (Excel/CSV)</button><button class="btn ghost sm" id="closeShift">تقفيل الوردية وبدء يوم جديد</button></div></div><div class="scroll"><table><thead><tr><th>الصنف</th><th>الكمية المباعة</th><th>الإيراد</th></tr></thead><tbody id="invRows"></tbody><tfoot id="invFoot"></tfoot></table></div></div>
+  </div>
+</main>
+
+<main id="kitchen" class="wrap" hidden>
+  <header class="shead"><h1>شاشة المطبخ والبار</h1><button class="btn ghost sm" id="exitKitchen">خروج</button></header>
+  <div id="kBoard" class="kgrid"></div>
+</main>
+
+<div class="modal" id="regModal" hidden><form class="glass box" id="regForm"><h2>أهلاً بك في أورومو</h2><p>سجّل مرة واحدة لتحصل على بطاقتك الملكية.</p><input id="rName" placeholder="الاسم" required autocomplete="name"><input id="rPhone" placeholder="رقم الموبايل" inputmode="tel" required autocomplete="tel"><button class="btn gold" type="submit">أنشئ بطاقتي</button></form></div>
+<div class="modal" id="pinModal" hidden><form class="glass box" id="pinForm"><h2>دخول الموظفين</h2><input id="pinIn" type="password" inputmode="numeric" placeholder="الرقم السري" autocomplete="off"><p id="pinErr" class="err"></p><button class="btn gold" type="submit">دخول</button><button class="btn ghost" type="button" id="pinCancel">إلغاء</button></form></div>
+<div class="modal" id="scanModal" hidden><div class="glass box"><video id="vid" playsinline muted></video><p id="scanMsg">وجّه الكاميرا نحو كود العميل</p><button class="btn ghost" id="scanClose">إغلاق</button></div></div>
+<canvas id="fx"></canvas>
+<div id="toast"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="./app.js"></script>
+</body>
+</html>
